@@ -5,6 +5,7 @@ import {
   GoogleSignin,
   statusCodes,
 } from '@react-native-google-signin/google-signin';
+import moment from 'moment';
 
 export default function GmailMailer() {
   const [accessToken, setAccessToken] = React.useState('');
@@ -32,7 +33,6 @@ export default function GmailMailer() {
     try {
       // Ensure you have a valid access token
       const token = accessToken; // Replace this with your access token retrieval logic
-
       const baseUrl = 'https://www.googleapis.com/gmail/v1/users/me/messages';
       const filterQuery = encodeURIComponent(
         `((from: 'yash.vhits@gmail.com' AND to: 'testreact65@gmail.com') OR (from: 'testreact65@gmail.com' AND to: 'yash.vhits@gmail.com')) AND (in:inbox OR in:sent)`,
@@ -140,7 +140,7 @@ export default function GmailMailer() {
     const snippet = messageDetails.snippet || 'No content';
     const date =
       messageDetails?.payload?.headers?.find(header => header.name === 'Date')
-        ?.value || 'Unknown'; // Format date using moment
+        ?.value || ''; // Format date using moment
 
     return {
       from,
@@ -166,11 +166,10 @@ export default function GmailMailer() {
           </Text>
           <FlatList
             data={filteredEmails}
-            renderItem={({item}) => (
-              <View style={styles.messageContainer}>
-                <Text style={styles.snippetText}>To: {item.to}</Text>
+            renderItem={({item, index}) => (
+              <View style={styles.messageContainer} key={index}>
+                <Text style={styles.fromEmailText}>To: {item.to}</Text>
                 <Text style={styles.fromEmailText}>From: {item.from}</Text>
-                <Text style={styles.fromEmailText}>Date: {item.date}</Text>
                 <Text style={styles.subjectText}>Subject: {item.subject}</Text>
                 <Text style={styles.snippetText}>Snippet: {item.snippet}</Text>
                 <Text
@@ -178,12 +177,14 @@ export default function GmailMailer() {
                     styles.snippetText,
                     {
                       color: item.label === 'SENT' ? 'green' : 'red',
-                      fontWeight: item.label === 'SENT' ? 'bold' : 'normal',
                       textDecorationLine:
                         item.label === 'SENT' ? 'underline' : 'none',
                     },
                   ]}>
                   Label: {item.label}
+                </Text>
+                <Text style={styles.date}>
+                  Date: {moment(item.date).format('lll')}
                 </Text>
               </View>
             )}
@@ -228,9 +229,18 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   subjectText: {
-    fontSize: 16,
+    fontSize: 14,
+    marginBottom: 5,
+    color: 'gray',
   },
   snippetText: {
     color: 'gray',
+    marginBottom: 5,
+    fontSize: 14,
+  },
+  fromEmailText: {
+    fontSize: 14,
+    color: 'gray',
+    marginBottom: 5,
   },
 });
