@@ -5,6 +5,7 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import VideoPlayer from './src/VideoPlayer';
 import WorkflowComponent from './workFlow';
 import {Canvas, Rect, vec, BoxShadow} from '@shopify/react-native-skia';
+import GmailMailer from './GmailMailer';
 
 const App = () => {
   const {height, width} = Dimensions.get('screen');
@@ -21,7 +22,8 @@ const App = () => {
         }}>
         {/* <Emoji /> */}
         {/* <VideoPlayer /> */}
-        <WorkflowComponent />
+        {/* <WorkflowComponent /> */}
+        <GmailMailer />
       </View>
     </GestureHandlerRootView>
   );
