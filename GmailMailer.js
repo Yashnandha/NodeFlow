@@ -18,10 +18,10 @@ export default function GmailMailer() {
       scopes: [
         'email',
         'profile',
-        'https://www.googleapis.com/auth/gmail.labels',
+        // 'https://www.googleapis.com/auth/gmail.labels',
         'https://www.googleapis.com/auth/gmail.readonly',
         'https://www.googleapis.com/auth/gmail.send',
-        'https://www.googleapis.com/auth/gmail.modify',
+        // 'https://www.googleapis.com/auth/gmail.modify',
       ],
       webClientId:
         '883265381557-3psegkbmibel90b8lmcln5b30m6mg3tj.apps.googleusercontent.com',
@@ -39,7 +39,6 @@ export default function GmailMailer() {
       );
 
       const url = `${baseUrl}?q=${filterQuery}&maxResults=100`; // Adjust maxResults as needed
-
       const response = await fetch(url, {
         method: 'GET',
         headers: {
@@ -153,6 +152,18 @@ export default function GmailMailer() {
       label,
     };
   };
+
+  useEffect(() => {
+    const isAlreadyLoggedIn = async () => {
+      const isSignedIn = GoogleSignin.hasPreviousSignIn();
+
+      if (isSignedIn) {
+        const accessToken = await GoogleSignin.getTokens();
+        setAccessToken(accessToken.accessToken);
+      }
+    };
+    isAlreadyLoggedIn();
+  }, []);
 
   return (
     <View style={styles.container}>
