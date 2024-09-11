@@ -6,6 +6,8 @@ import VideoPlayer from './src/VideoPlayer';
 import WorkflowComponent from './workFlow';
 import {Canvas, Rect, vec, BoxShadow} from '@shopify/react-native-skia';
 import GmailMailer from './GmailMailer';
+import GpayNew from './GpayNew';
+import InstaHome from './InstaHome';
 
 const App = () => {
   const {height, width} = Dimensions.get('screen');
@@ -16,14 +18,16 @@ const App = () => {
       <View
         style={{
           flex: 1,
-          alignItems: 'center',
-          justifyContent: 'center',
+          // alignItems: 'center',
+          // justifyContent: 'center',
           backgroundColor: '#f1f1f1',
         }}>
         {/* <Emoji /> */}
         {/* <VideoPlayer /> */}
         {/* <WorkflowComponent /> */}
-        <GmailMailer />
+        {/* <GmailMailer /> */}
+        {/* <GpayNew /> */}
+        <InstaHome />
       </View>
     </GestureHandlerRootView>
   );

@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "883265381557",
+    "project_id": "twishui0606",
+    "storage_bucket": "twishui0606.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:883265381557:android:f37706e1fd9eff6a8d4afc",
+        "android_client_info": {
+          "package_name": "com.twishui"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "883265381557-3psegkbmibel90b8lmcln5b30m6mg3tj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLTNAZZvdzZMYZykqUUtJ5rWxlPB4SJ0w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "883265381557-3psegkbmibel90b8lmcln5b30m6mg3tj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "883265381557-d5lmmp4bpqttfpttkmlu2plt56eo4g85.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.vh.wildcardapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

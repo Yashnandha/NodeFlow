@@ -10,6 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@google/react-native-make-payment": "^0.1.3",
     "@react-native-google-signin/google-signin": "^13.0.1",
     "@shopify/react-native-skia": "^1.3.11",
     "axios": "^1.7.7",
