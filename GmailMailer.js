@@ -194,9 +194,7 @@ export default function GmailMailer() {
                   ]}>
                   Label: {item.label}
                 </Text>
-                <Text style={styles.date}>
-                  Date: {moment(item.date).format('lll')}
-                </Text>
+                <Text>Date: {moment(item.date).format('lll')}</Text>
               </View>
             )}
             keyExtractor={item => item.id}
